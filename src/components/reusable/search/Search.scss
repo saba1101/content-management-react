@@ -1,0 +1,49 @@
+.search_wrapper {
+    width: 100%;
+    height: 3.125rem;
+    background: #FFFFFF;
+    position: relative;
+    box-shadow: $main_box_shadow;
+    border-radius: 1.875rem;
+    overflow: hidden;
+
+    .search_icon_wrapper{
+        position: absolute;
+        top: 50%;
+        right: 0.9375rem;
+        transform: translate(0,-50%);
+        @include centerEl;
+
+        &.focused{
+            img{
+                filter: brightness(.6);
+            }
+        }
+
+        img{
+            width: 1.375rem;
+            filter: brightness(.9);
+            transition: $main_transition;
+        }
+    }
+
+    .input_wrapper{
+        width: 100%;
+        height: 100%;
+
+        input{
+            width: 100%;
+            height: 100%;
+            padding: 0 1.875rem;
+            color: $main_text_color;
+            font-size: 0.875rem;
+            transition: $main_transition;
+
+            &::placeholder{
+                color: $main_text_color;
+                font-size: 0.875rem;
+            }
+
+        }
+    }
+}

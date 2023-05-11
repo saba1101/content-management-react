@@ -1,0 +1,46 @@
+.modal_overlay{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba($base_dark,.3);
+    backdrop-filter: blur(0.0625rem);
+    @include centerEl;
+
+
+    .popup{
+        min-width: 31.25rem;
+        max-width: calc(100vw -  15rem);
+        min-height: 18.75rem;
+        max-height: calc(100vh - 9.375rem);
+        padding: 1.5625rem 1.875rem;
+        border-radius: 0.75rem;
+        background: #FFFFFF;
+        box-shadow: $main_box_shadow;
+        overflow: auto;
+        position: relative;
+
+        .close_action{
+            width: 1.875rem;
+            height: 1.875rem;
+            border-radius: 50%;
+            position: absolute;
+            top: 0.9375rem;
+            right: 0.9375rem;
+            transition:$main_transition;
+            background: rgba($main_red,.7);
+            cursor: pointer;
+            @include centerEl;
+            
+            &:hover{
+                background: $main_red;
+            }
+
+            img{
+                width: 1rem;
+            }
+        }
+    }
+}

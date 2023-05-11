@@ -1,3 +1,13 @@
-@mixin dd (){
-    background: black;
+@mixin flex($justify,$align,$direction,$gap) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-direction: $direction;
+    gap: $gap;
 }
+
+@mixin centerEl(){
+    display: grid;
+    place-items: center;
+}
+

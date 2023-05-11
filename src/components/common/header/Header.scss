@@ -1,0 +1,77 @@
+header{
+    width: 100%;
+    height: 9.6875rem;
+    background: transparent;
+    padding: 1.875rem 2.8125rem;
+    @include flex(space-between,center,row,unset);
+
+    .left_side{
+        .sidebar_icon_wrapper{
+            @include flex(center,center,row,1.875rem);
+
+            .sidebar_icon{
+                width: 3.125rem;
+                height: 3.125rem;
+                background: #FFFFFF;
+                border-radius: 50%;
+                box-shadow: 0 0.3125rem 1.25rem rgba($main_shadow,.2);
+                overflow: hidden;
+                @include centerEl;
+                cursor: pointer;
+                transition: $main_transition;
+
+                img{
+                    width: 1rem;
+                    transition: $main_transition;
+                }
+
+                &:hover{
+                    background: $main_purple;
+
+                    img{
+                        transform: scale(1.2);
+                        filter: brightness(15);
+                    }
+                }
+            }
+    
+            .main_label{
+                h2{
+                    color: $main_text_color;
+                    font-size: 1.125rem;
+                }
+            }
+        }
+    }
+
+    .middle_side{
+        ul{
+            @include flex(center,center,row,1.875rem);
+            
+            li{
+                transition: $main_transition;
+
+                &:hover{
+                    transform: translateY(-0.125rem);
+
+                    a{
+                        color: $main_purple;
+                    }
+                }
+
+                a{
+                    color: $main_text_color;
+                    font-weight: 700;
+                    transition: $main_transition;
+                }
+            }
+        }
+    }
+}
+
+.right_side{
+    .search_panel{
+        width: 20rem;
+
+    }
+}
