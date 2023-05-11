@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const userStore = createSlice({
   name: "userStore",
   initialState: {
-    Authorized : true,
+    Authorized : false,
     UserName : '',
     Email : '',
     Avatar : '',

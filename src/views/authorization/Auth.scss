@@ -1,0 +1,39 @@
+.modal_overlay{
+    background-image: url('@/assets/icons/covers/auth_bg.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    .popup{
+        background: rgba(#FFFFFF,.5);
+        backdrop-filter: blur(0.0625rem);
+    }
+}
+
+.form_wrapper{
+
+    form{
+
+        ul{
+            @include flex(center,center,column,0.9375rem);
+
+            li{
+                width: 100%;
+
+                .switch_auth_method{
+                    cursor: pointer;
+                    margin-right: 0.3125rem;
+                    text-align: right;
+                    font-size: 0.9375rem;
+                    color: #FFFFFF;
+                    
+                    span{
+                        color: #FFFFFF;
+                        text-decoration: underline;
+                        user-select: none;
+                    }
+                }
+            }
+        }
+    }
+}

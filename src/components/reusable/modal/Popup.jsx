@@ -1,7 +1,14 @@
 import IconClose from '@/assets/icons/svg/close.svg'
 import('./Popup.scss')
 
-const Popup = (props = {visible: false,slot:null, title: ''}) => {
+const Popup = (
+    props = { 
+        visible: false ,
+        slot:null,
+        title: '', 
+        disableClose: true,
+    }
+) => {
 
     const ContentSlot = () => {
         return <div className="popup_content_body"> {props.slot} </div>
@@ -14,9 +21,14 @@ const Popup = (props = {visible: false,slot:null, title: ''}) => {
             {
                 props.visible ?
                     <div className="popup">
-                        <div className="close_action" onClick={Close_Popup}>
-                            <img src={IconClose} alt="" />
-                        </div>
+                        {
+                            props.disableClose ?
+                                ''
+                            :
+                                <div className="close_action" onClick={Close_Popup}>
+                                    <img src={IconClose} alt="" />
+                                </div>
+                        }
                         <div className="popup_content">
                             {
                                 props.title ?

@@ -23,9 +23,21 @@
         overflow: auto;
         position: relative;
 
+        .popup_content_body{
+            margin-top: 2rem;
+        }
+
+        .popup_content_title{
+            h2{
+                color: #FFFFFF;
+                pointer-events: none;
+                user-select: none;
+            }
+        }
+
         .close_action{
-            width: 1.875rem;
-            height: 1.875rem;
+            width: 1.5625rem;
+            height: 1.5625rem;
             border-radius: 50%;
             position: absolute;
             top: 0.9375rem;
@@ -40,7 +52,7 @@
             }
 
             img{
-                width: 1rem;
+                width: 0.875rem;
             }
         }
     }
