@@ -10,15 +10,19 @@ export const Auth = (props = {type : ''}) => {
     const [popupVisible, setpopupVisible] = useState(true)
     const [AuthMode,setAuthMode] = useState(Modes.REGISTER)
     const [LoginElements,setLoginElements] = useState(LoginForm)
+    const [ResigterElements,setResigterElements] = useState(RegistrationForm)
 
-    const Update__Input_Values = (value,ind) => {
-        const newInputValues = LoginElements.map((input,index) => {
+
+    const Update__Input_Values = (value,ind,array) => {
+        const newInputValues = array.map((input,index) => {
             if (index === ind) {
               return { ...input, value: value };
             }
             return input;
           });
-          setLoginElements(newInputValues);
+          
+          if(AuthMode === Modes.LOGIN) setLoginElements(newInputValues)
+          if(AuthMode === Modes.REGISTER) setResigterElements(newInputValues);
     }
 
     const Switch__To_Login = () => setAuthMode(Modes.LOGIN)
@@ -30,15 +34,15 @@ export const Auth = (props = {type : ''}) => {
                 <form>
                     <ul>
                         {
-                            RegistrationForm && RegistrationForm.length ? 
-                            RegistrationForm.map((el,ind) => {
+                            ResigterElements && ResigterElements.length ? 
+                            ResigterElements.map((el,ind) => {
                                     return (
                                         <li className="single_login_field" key={ind}>
                                             <Input
                                                 placeholder={ el.label ?? '' }
                                                 type={ el.inputType }
                                                 value={ el.value }
-                                                Typing={(payload) => Update__Input_Values(payload,ind)}
+                                                Typing={(payload) => Update__Input_Values(payload,ind,ResigterElements)}
                                             />
                                         </li>
                                     )
@@ -78,7 +82,7 @@ export const Auth = (props = {type : ''}) => {
                                                 placeholder={ el.label ?? '' }
                                                 type={ el.inputType }
                                                 value={ el.value }
-                                                Typing={(payload) => Update__Input_Values(payload,ind)}
+                                                Typing={(payload) => Update__Input_Values(payload,ind,LoginElements)}
                                             />
                                         </li>
                                     )
