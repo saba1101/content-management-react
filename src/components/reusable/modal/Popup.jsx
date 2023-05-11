@@ -7,12 +7,14 @@ const Popup = (props = {visible: false,slot:null, title: ''}) => {
         return <div className="popup_content_body"> {props.slot} </div>
     }
 
+    const Close_Popup = () => props.closePopup(!props.visible) 
+
     return (
         <div className="modal_overlay">
             {
                 props.visible ?
                     <div className="popup">
-                        <div className="close_action">
+                        <div className="close_action" onClick={Close_Popup}>
                             <img src={IconClose} alt="" />
                         </div>
                         <div className="popup_content">

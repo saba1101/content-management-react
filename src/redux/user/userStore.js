@@ -3,8 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 export const userStore = createSlice({
   name: "userStore",
   initialState: {
-    Authorized : false,
-    UserName : ''
+    Authorized : true,
+    UserName : '',
+    Email : '',
+    Avatar : '',
   },
   reducers: {
     Set_Authorize : (state) => state.Authorized = true,

@@ -7,6 +7,7 @@
     left: 0;
     background: rgba($base_dark,.3);
     backdrop-filter: blur(0.0625rem);
+    z-index: 100;
     @include centerEl;
 
 
