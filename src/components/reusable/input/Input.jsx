@@ -30,6 +30,7 @@ const Input = (
                 onFocus={() => setFocused(true)}
                 onBlur={() => setFocused(false)}
                 value={props.value}
+                required={ props.required ?? false}
                 spellCheck={false}
             />
             <div 

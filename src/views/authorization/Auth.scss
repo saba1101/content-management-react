@@ -1,11 +1,11 @@
 .modal_overlay{
-    background-image: url('@/assets/icons/covers/auth_bg.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+    // background-image: url('@/assets/icons/covers/auth_bg.jpg');
+    // background-size: cover;
+    // background-attachment: fixed;
+    // background-repeat: no-repeat;
 
     .popup{
-        background: rgba(#FFFFFF,.5);
+        background: rgba(#FFFFFF,.2);
         backdrop-filter: blur(0.0625rem);
     }
 }
@@ -19,6 +19,26 @@
 
             li{
                 width: 100%;
+
+                &.login_option_checkbox{
+                    cursor: pointer;
+                    margin-top: 0.625rem;
+                    padding-bottom: 0.9375rem;
+                    @include flex(space-between,center,row,unset);
+
+                    input[type=checkbox]{
+                        width: 1.0625rem;
+                        height: 1.0625rem;
+                    }
+
+                    .login_option{
+                        @include flex(center,center,row,unset);
+                        span{
+                            margin-left: 0.625rem;
+                            color: #FFFFFF;
+                        }
+                    }
+                }
 
                 .switch_auth_method{
                     cursor: pointer;
