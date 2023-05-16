@@ -1,0 +1,63 @@
+.sidebar_content{
+    width: 100%;
+    height: 100%;
+    border: 0.125rem solid $sidebar_border;
+    border-radius: 1.25rem;
+    position: sticky;
+    top: 0; 
+    box-shadow: $sidebar_box_shadow;
+
+    ul{
+        box-sizing: border-box;
+        padding: 0 0.625rem;
+        cursor: pointer;
+        margin-top: 0.625rem;
+
+        li{
+            margin-top: 0.9375rem;
+
+            a{
+                @include flex(flex-start,center,row,1.25rem);
+                padding: 15px 0.9375rem;
+                transition: $main_transition;
+                border-radius: 0.625rem;
+    
+                &:hover{
+                    background: $main_purple; 
+    
+                    .navigation_label > span{
+                        color: #FFFFFF;
+                    }
+                }
+            }
+
+            .navigation_icon{
+                @include centerEl;
+                img{
+                    width: 1.5rem;
+                    max-height: 80%;
+                    object-fit: contain;
+                    pointer-events: none;
+                    user-select: none;
+                }
+            }
+
+            .navigation_label{
+
+                span{
+                    font-size: 1.125rem;
+                    color: $main_text_color;
+                }
+            }
+        }
+    }
+}
+
+.--ActiveRoute{
+    background: $main_purple; 
+    box-shadow: $main_box_shadow;
+    
+    span{
+        color: #FFFFFF !important;
+    }
+}

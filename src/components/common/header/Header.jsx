@@ -5,16 +5,27 @@ import IconSidebar from "@/assets/icons/svg/grid.svg"
 import Header_Data from "@/components/common/header/headerDB.js"
 import Search from '@/components/reusable/search/Search.jsx'
 import UserPanel from "../users/userPanel/UserPanel"
+import { useDispatch, useSelector } from "react-redux"
+import { Collapse_Sidebar } from "../../../redux/ActionStore"
 
 const Header = (props) => {
     const { Navigation } = Header_Data
     const [searchValue,setSearchValue] = useState("")
+    const {SidebarCollapsed} = useSelector(state => state.ActionStore)
+    const dispatch = useDispatch()
+
+    const Trigger__Sidebar_Collapse = () => {
+        dispatch(Collapse_Sidebar())
+    }   
 
     return (
         <header>
             <div className="left_side">
                 <div className="sidebar_icon_wrapper">
-                    <div className="sidebar_icon">
+                    <div 
+                        className={`sidebar_icon ${SidebarCollapsed ? 'active' : ''}`} 
+                        onClick={Trigger__Sidebar_Collapse}
+                    >
                         <img src={IconSidebar} alt="" />
                     </div>
                     <div className="main_label">
@@ -52,7 +63,7 @@ const Header = (props) => {
                 <ul>
                     <li>
                         <UserPanel
-                            
+
                         />
                     </li>
                 </ul>

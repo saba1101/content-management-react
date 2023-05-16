@@ -24,4 +24,39 @@ a{
 
 body{
     background: $main_background;
+
+    main{
+        height: calc(100vh - 10rem);
+        display: grid;
+        grid-template-columns: 19.375rem calc(100% - 20rem);
+        grid-gap: 2rem;
+        overflow: hidden;
+        transition: $main_transition;
+        
+        &.no_sidebar{
+            grid-template-columns: 0 calc(100% - 20rem);
+        }
+
+        .page_content{
+            overflow: auto;
+        }
+
+        .sidebar_placeholder{
+            width: 0;
+            height: 100%;
+            margin-left: 1.5rem;
+            @include centerEl;
+            padding: 0 0.9375rem;
+            transition: $main_transition;
+            opacity: 0;
+            overflow: hidden;
+
+            &.collapsed{
+                width: 19.375rem;
+                opacity: 1;
+                overflow: auto;
+            }
+
+        }
+    }
 }

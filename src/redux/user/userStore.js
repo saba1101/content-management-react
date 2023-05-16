@@ -19,18 +19,18 @@ export const userStore = createSlice({
     Set_Password : (state,action) => {state.Password = action.payload},
     Set_ID : (state,action) => {state.ID = action.payload},
 
+    Set_UsersHistory : (state,action) => {
+      if(localStorage.getItem('usersHistory') && JSON.parse(localStorage.getItem('usersHistory'))){
+        state.UsersHistory = [...JSON.parse(localStorage.getItem('usersHistory'))]
+      }
+    },
+
     Remove__User_From_History : (state,action) => {
       if(localStorage.getItem('usersHistory') && JSON.parse(localStorage.getItem('usersHistory'))){
         state.UsersHistory = state.UsersHistory.filter(user => user.ID !== action.payload)
         localStorage.setItem('usersHistory',JSON.stringify(state.UsersHistory))
       }
     },
-
-    Set_UsersHistory : (state,action) => {
-      if(localStorage.getItem('usersHistory') && JSON.parse(localStorage.getItem('usersHistory'))){
-        state.UsersHistory = [...JSON.parse(localStorage.getItem('usersHistory'))]
-      }
-    }
 
   }
 });

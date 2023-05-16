@@ -4,6 +4,10 @@ header{
     background: transparent;
     padding: 1.875rem 2.8125rem;
     @include flex(space-between,center,row,unset);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: $main_background;
 
     .left_side{
         .sidebar_icon_wrapper{
@@ -19,6 +23,15 @@ header{
                 @include centerEl;
                 cursor: pointer;
                 transition: $main_transition;
+
+                &.active{
+                    background: $main_purple;
+
+                    img{
+                        transform: scale(1.2);
+                        filter: brightness(15);
+                    }
+                }
 
                 img{
                     width: 1rem;
@@ -73,6 +86,6 @@ header{
     @include flex(flex-start,center,row,1.875rem);
     .search_panel{
         width: 20rem;
-        
+
     }
 }

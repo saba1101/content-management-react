@@ -9,7 +9,7 @@ import { Remove__User_From_History } from '../../../../redux/user/userStore'
 
 const UserPanel = () => {
 
-    const [Collapsed,setCollapsed] = useState(true)
+    const [Collapsed,setCollapsed] = useState(false)
     const CollapsableRef = useRef(null)
     const actionIconRef = useRef(null)
     const dispatch = useDispatch()
