@@ -3,10 +3,15 @@ import Home from '@/views/Home/Home.jsx'
 import Header from '@/components/common/header/Header.jsx'
 import { Auth } from './views/authorization/Auth'
 import { useDispatch, useSelector } from 'react-redux'
-import { Set_UserName,Set_Password,Set_Email } from './redux/user/userStore'
+import { Set_UserName,Set_Password,Set_Email,Set_UsersHistory } from './redux/user/userStore'
+import { useEffect } from 'react'
 const App = () => {
   const dispatch = useDispatch()
   const { Authorized } = useSelector(state => state.UserStore) 
+
+  useEffect(() => {
+    dispatch(Set_UsersHistory())
+  },[])
 
   // const Check__Auth = () => {
   //   let userConfig = localStorage.getItem('userConfig') && JSON.parse(localStorage.getItem('userConfig')) ? JSON.parse(localStorage.getItem('userConfig')) : null

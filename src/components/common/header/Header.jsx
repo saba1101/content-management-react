@@ -1,9 +1,10 @@
 import('./Header.scss')
+import { useState } from "react"
+import { Link } from "react-router-dom"
 import IconSidebar from "@/assets/icons/svg/grid.svg"
 import Header_Data from "@/components/common/header/headerDB.js"
-import { Link } from "react-router-dom"
 import Search from '@/components/reusable/search/Search.jsx'
-import { useState } from "react"
+import UserPanel from "../users/userPanel/UserPanel"
 
 const Header = (props) => {
     const { Navigation } = Header_Data
@@ -50,7 +51,9 @@ const Header = (props) => {
                 </div>
                 <ul>
                     <li>
-
+                        <UserPanel
+                            
+                        />
                     </li>
                 </ul>
             </div>

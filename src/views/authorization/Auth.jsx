@@ -4,7 +4,7 @@ import Popup from "../../components/reusable/modal/Popup"
 import { AuthData } from "./authData"
 import Input from '@/components/reusable/input/Input.jsx'
 import MainButton from "../../components/reusable/button/MainButton"
-import { Set_UserName,Set_Email,Set_Password,Set_Authorize} from "../../redux/user/userStore"
+import { Set_UserName,Set_Email,Set_Password,Set_Authorize,Set_ID,Set_UsersHistory} from "../../redux/user/userStore"
 import { useDispatch, useSelector } from "react-redux"
 
 export const Auth = (props = {type : ''}) => {
@@ -23,6 +23,7 @@ export const Auth = (props = {type : ''}) => {
         dispatch(Set_UserName(Lstore?.UserName))
         dispatch(Set_Email(Lstore?.Email))
         dispatch(Set_Password(Lstore?.Password))
+        dispatch(Set_ID(Lstore?.ID))
     }
 
     const Trigger__Auto_Login = () => {
@@ -99,6 +100,8 @@ export const Auth = (props = {type : ''}) => {
             }
         })
 
+        userData['ID'] = crypto.randomUUID()
+
         localStorage.setItem('userConfig',JSON.stringify(userData))
         setAuthMode(Modes.LOGIN)
         AutoSet_Login_Params(
@@ -106,6 +109,19 @@ export const Auth = (props = {type : ''}) => {
             ResigterElements.find(el => el.type === 'PASSWORD').value,
         )
         localStorage.setItem('PreAuthed',true)
+        
+        if(localStorage.getItem('usersHistory')) {
+            const prevHistory = JSON.parse(localStorage.getItem('usersHistory'))
+            prevHistory.push(userData)
+            localStorage.setItem(
+                'usersHistory',
+                JSON.stringify(prevHistory)
+            )
+        }
+        else localStorage.setItem('usersHistory',JSON.stringify([userData]))
+
+        dispatch(Set_UsersHistory())
+
     }
 
     const AutoSet_Login_Params = (username,password) => {

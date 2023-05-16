@@ -70,8 +70,9 @@ header{
 }
 
 .right_side{
+    @include flex(flex-start,center,row,1.875rem);
     .search_panel{
         width: 20rem;
-
+        
     }
 }
